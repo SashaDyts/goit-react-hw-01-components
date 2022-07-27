@@ -5,17 +5,22 @@ import {
   UserAvatar,
   UserName,
 } from './FriendListItem.styled.js';
+import PropTypes from 'prop-types';
 
 const FriendListItem = ({ friends }) => {
-  return friends.map(({ avatar, name, id, isOnline }) => {
-    return (
-      <FriendListItemStyled key={id}>
-        <Indicator isOnline={isOnline}></Indicator>
-        <UserAvatar src={avatar} alt="User avatar" />
-        <UserName>{name}</UserName>
-      </FriendListItemStyled>
-    );
-  });
+  return (
+    <FriendListItemStyled>
+      <Indicator isOnline={friends.isOnline}></Indicator>
+      <UserAvatar src={friends.avatar} alt="User avatar" />
+      <UserName>{friends.name}</UserName>
+    </FriendListItemStyled>
+  );
+};
+
+FriendListItem.propTypes = {
+  isOnline: PropTypes.bool,
+  src: PropTypes.string,
+  alt: PropTypes.string,
 };
 
 export default FriendListItem;

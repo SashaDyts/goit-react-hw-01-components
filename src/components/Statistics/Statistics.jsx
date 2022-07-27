@@ -7,6 +7,8 @@ import {
   Persenrage,
 } from './Statistics.styled.js';
 
+import PropTypes from 'prop-types';
+
 const Statistics = ({ title, stats }) => {
   return (
     <StatisticsStyled>
@@ -21,6 +23,11 @@ const Statistics = ({ title, stats }) => {
       </StatiscticList>
     </StatisticsStyled>
   );
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.array,
 };
 
 export default Statistics;

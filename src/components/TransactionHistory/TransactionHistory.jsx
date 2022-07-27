@@ -6,6 +6,8 @@ import {
   TransactionHistoryTableBody,
 } from './TransactionHistory.styled.js';
 
+import PropTypes from 'prop-types';
+
 const TransactionHistory = ({ items }) => {
   return (
     <TransactionHistoryTable>
@@ -30,6 +32,13 @@ const TransactionHistory = ({ items }) => {
       </TransactionHistoryTableBody>
     </TransactionHistoryTable>
   );
+};
+
+TransactionHistory.propTypes = {
+  key: PropTypes.number,
+  amount: PropTypes.number,
+  type: PropTypes.string,
+  currency: PropTypes.string,
 };
 
 export default TransactionHistory;
