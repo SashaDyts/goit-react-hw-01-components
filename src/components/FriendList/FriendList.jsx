@@ -6,16 +6,29 @@ import PropTypes from 'prop-types';
 const FriendList = ({ friends }) => {
   return (
     <FriendListStyled>
-      {friends.map(friend => {
-        return <FriendListItem friends={friend} key={friend.id} />;
+      {friends.map(({ avatar, name, isOnline, id }) => {
+        return (
+          <FriendListItem
+            key={id}
+            avatar={avatar}
+            name={name}
+            isOnline={isOnline}
+          />
+        );
       })}
     </FriendListStyled>
   );
 };
 
 FriendList.propTypes = {
-  friends: PropTypes.array,
-  key: PropTypes.number,
+  friends: PropTypes.arrayOf(
+    PropTypes.exact({
+      isOnline: PropTypes.bool,
+      avatar: PropTypes.string,
+      name: PropTypes.string,
+      id: PropTypes.number,
+    })
+  ),
 };
 
 export default FriendList;
